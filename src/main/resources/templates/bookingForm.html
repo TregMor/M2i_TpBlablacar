@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+	   <form action="#" th:action="@{/}" th:object="${userCreationForm}" method="post">
+           <table>
+             <tr>
+                    <td>UserId:</td>
+                    <td><input type="text" th:field="*{userId}" /></td>
+                    <td th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"/>
+              </tr>
+                <tr>
+                    <td>Depart:</td>
+                    <td><input type="text" th:field="*{villeDepart}" /></td>
+                    <td th:if="${#fields.hasErrors('villeDepart')}" th:errors="*{villeDepart}"/>
+                </tr>
+                <tr>
+                    <td>Arrivee:</td>
+                    <td><input type="text" th:field="*{villeArrivee}" /></td>
+                    <td th:if="${#fields.hasErrors('villeArrivee')}" th:errors="*{villeArrivee}"/>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="text" th:field="*{date}" /></td>
+                    <td th:if="${#fields.hasErrors('date')}" th:errors="*{date}"/>
+                </tr>
+                <tr>
+                    <td>Nb de places:</td>
+                    <td><input type="text" th:field="*{placesCount}" /></td>
+                    <td th:if="${#fields.hasErrors('placesCount')}" th:errors="*{placesCount}"/>
+                </tr>
+                
+                
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+	</body>
+</html>

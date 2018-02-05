@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: trajet-facile
+Implementation-Title: TpBlablacar
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Administrateur
 Implementation-Vendor-Id: TpBlablacar

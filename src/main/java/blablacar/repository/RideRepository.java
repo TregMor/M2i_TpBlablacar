@@ -7,5 +7,4 @@ import blablacar.domain.Ride;
 
 @Repository
 public interface RideRepository extends CrudRepository<Ride, Integer>{
-	
 }

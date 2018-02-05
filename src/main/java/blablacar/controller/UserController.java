@@ -1,6 +1,7 @@
 package blablacar.controller;
 
 import blablacar.domain.User;
+import blablacar.repository.RideRepository;
 import blablacar.repository.UserRepository;
 import blablacar.services.UserService;
 
@@ -13,9 +14,10 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-	
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	RideRepository rideRepository;
 	
 	@GetMapping("{id}")
 	public User find(@PathVariable("id") Integer userId) {
@@ -28,28 +30,33 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public void signup(@RequestBody User user) {
-		System.out.println("signup | user: " + user);
-		userService.signup(user);
+	public void save(@RequestBody User user) {
+		System.out.println("save | user: " + user);
+		userService.save(user);
 	}
 	
-	@PostMapping("{userId}/{rideId}")
-	public void addRide(@PathVariable("userId") Integer userId, @PathVariable("rideId") Integer rideId) {
-		System.out.println("signup | user: " + userId + "ride: " + rideId);
-		//userService.signup(user);
-	}
+    @PostMapping("{userId}/{rideId}")
+    public void addRide(@PathVariable("userId") int userId, @PathVariable("rideId") int rideId) {
+        userService.addRide(userId, rideId);
+    }
 
 	// Getters-Setters ajoutés ds le doute...
-	public UserService getUserService() {
-		return userService;
-	}
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
-	public UserRepository getUserRepository() {
-		return userRepository;
-	}
-	public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+//	public UserService getUserService() {
+//		return userService;
+//	}
+//	public void setUserService(UserService userService) {
+//		this.userService = userService;
+//	}
+//	public UserRepository getUserRepository() {
+//		return userRepository;
+//	}
+//	public void setUserRepository(UserRepository userRepository) {
+//		this.userRepository = userRepository;
+//	}
+//	public RideRepository getRideRepository() {
+//	return rideRepository;
+//}
+//public void setRideRepository(RideRepository rideRepository) {
+//	this.rideRepository = rideRepository;
+//}
 }

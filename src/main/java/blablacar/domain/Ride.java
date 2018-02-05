@@ -29,36 +29,21 @@ public class Ride {
 	private User userWhoProposed;
 
 	public int getId() {
-		return id;
-	}
-
+		return id;}
 	public void setId(int id) {
-		this.id = id;
-	}
-
+		this.id = id;}
 	public Integer getTotalPlaces() {
-		return totalPlaces;
-	}
-
+		return totalPlaces;}
 	public void setTotalPlaces(Integer totalPlaces) {
-		this.totalPlaces = totalPlaces;
-	}
-
+		this.totalPlaces = totalPlaces;}
 	public Date getDepartureDate() {
-		return departureDate;
-	}
-
+		return departureDate;}
 	public void setDepartureDate(Date departureDate) {
-		this.departureDate = departureDate;
-	}
-
+		this.departureDate = departureDate;}
 	public User getUserWhoProposed() {
-		return userWhoProposed;
-	}
-
+		return userWhoProposed;}
 	public void setUserWhoProposed(User userWhoProposed) {
-		this.userWhoProposed = userWhoProposed;
-	}
+		this.userWhoProposed = userWhoProposed;}
 
 	// public String getLeftPlaces() {
 	// return leftPlaces;

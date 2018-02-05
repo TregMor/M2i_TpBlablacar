@@ -4,16 +4,15 @@ import java.util.Date;
 
 public class Booking {
 
-	private Integer seatCount;
+	private Integer placesCount;
 	private Date creationDate;
 	
 	
-	
-	public Integer getSeatCount() {
-		return seatCount;
+	public Integer getPlacesCount() {
+		return placesCount;
 	}
-	public void setSeatCount(Integer seatCount) {
-		this.seatCount = seatCount;
+	public void setSeatCount(Integer placesCount) {
+		this.placesCount = placesCount;
 	}
 	public Date getCreationDate() {
 		return creationDate;

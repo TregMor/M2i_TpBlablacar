@@ -1,5 +1,6 @@
 package blablacar.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,69 +34,52 @@ public class User {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     
-    private String	mail;
     private String rating;  
     private Boolean confirmed;
 
     @OneToMany(mappedBy = "userWhoProposed")
-    private List<Ride> proposedRides;
-    
+    private List<Ride> proposedRides = new ArrayList<>();
+
 	public Integer getId() {
-		return id;
-	}
+		return id;}
 	public void setId(Integer id) {
-		this.id = id;
-	}
+		this.id = id;}
 	public String getLogin() {
-		return login;
-	}
+		return login;}
 	public void setLogin(String login) {
-		this.login = login;
-	}
-
+		this.login = login;}
 	public String getPassword() {
-		return password;
-	}
+		return password;}
 	public void setPassword(String password) {
-		this.password = password;
-	}
+		this.password = password;}
 	public String getFirstName() {
-		return firstName;
-	}
+		return firstName;}
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+		this.firstName = firstName;}
 	public String getLastName() {
-		return lastName;
-	}
+		return lastName;}
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+		this.lastName = lastName;}
 	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+		return dateOfBirth;}
 	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+		this.dateOfBirth = dateOfBirth;}
 	public String getRating() {
-		return rating;
-	}
-
+		return rating;}
 	public void setRating(String rating) {
-		this.rating = rating;
-	}
-
+		this.rating = rating;}
 	public Boolean getConfirmed() {
-		return confirmed;
-	}
-
+		return confirmed;}
 	public void setConfirmed(Boolean confirmed) {
-		this.confirmed = confirmed;
+		this.confirmed = confirmed;}
+	
+	public List<Ride> getProposedRides() {
+		return proposedRides;
+	}
+	public void setProposedRides(List<Ride> proposedRides) {
+		this.proposedRides = proposedRides;
 	}
 }
+
+	
+

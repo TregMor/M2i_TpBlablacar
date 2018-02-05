@@ -35,6 +35,4 @@ public class RideController {
 		System.out.println("signup | ride: " + ride);
 		rideRepository.save(ride);
 	}
-
 }
-
