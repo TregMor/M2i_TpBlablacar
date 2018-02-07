@@ -1,17 +1,18 @@
  
- <html>
+ 
+ <html xmlns:th="http://www.thymeleaf.org">
     <body>
         <form action="#" th:action="@{/}" th:object="${userCreationForm}" method="post">
             <table>
              	<tr>
                     <td>Nom:</td>
-                    <td><input type="text" th:field="*{nom}" /></td>
-                    <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"/>
+                    <td><input type="text" th:field="*{firstName}" /></td>
+                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
                 </tr>
                 <tr>
                     <td>Prenom:</td>
-                    <td><input type="text" th:field="*{prenom}" /></td>
-                    <td th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"/>
+                    <td><input type="text" th:field="*{lastName}" /></td>
+                    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
                 </tr>
                 <tr>
                     <td>Login:</td>

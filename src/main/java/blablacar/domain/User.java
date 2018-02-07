@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
 //import lombok.Data; //Permet la gestion 'invisible' des getters/setters
 import org.hibernate.validator.constraints.NotBlank;
 
-//@Data
 @Entity
 public class User {
 	
@@ -27,18 +26,20 @@ public class User {
     private String login;
 	@NotBlank
     private String password;
-	
     private String firstName;
     private String lastName; 
-    
     @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+    private Date birthDate;
     
     private String rating;  
     private Boolean confirmed;
 
     @OneToMany(mappedBy = "userWhoProposed")
     private List<Ride> proposedRides = new ArrayList<>();
+
+    @OneToMany(mappedBy ="user")
+	private List<Booking> bookings;
+	
 
 	public Integer getId() {
 		return id;}
@@ -60,10 +61,11 @@ public class User {
 		return lastName;}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;}
-	public Date getDateOfBirth() {
-		return dateOfBirth;}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;}
+	public Date getBirthDate() {
+		return birthDate;}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;}
+	
 	public String getRating() {
 		return rating;}
 	public void setRating(String rating) {
@@ -74,11 +76,15 @@ public class User {
 		this.confirmed = confirmed;}
 	
 	public List<Ride> getProposedRides() {
-		return proposedRides;
-	}
+		return proposedRides;}
 	public void setProposedRides(List<Ride> proposedRides) {
-		this.proposedRides = proposedRides;
-	}
+		this.proposedRides = proposedRides;}
+	
+	public List<Booking> getBookings() {
+		return bookings;}
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;}
+	
 }
 
 	

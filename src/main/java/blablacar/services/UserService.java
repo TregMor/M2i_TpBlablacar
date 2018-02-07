@@ -1,11 +1,12 @@
 package blablacar.services;
 
+import org.springframework.stereotype.Service;
+
 import blablacar.domain.Ride;
 import blablacar.domain.User;
 import blablacar.repository.RideRepository;
 import blablacar.repository.UserRepository;
 
-import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,12 +31,5 @@ public class UserService {
     ride.setUserWhoProposed(user);
     userRepository.save(user);
     }
-
-	public UserRepository getUserDao() {
-		return userRepository;
-	}
-	public void setUserDao(UserRepository userDao) {
-		this.userRepository = userDao;
-	}
 
 }
