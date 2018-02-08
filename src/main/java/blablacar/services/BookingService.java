@@ -27,7 +27,7 @@ public class BookingService {
 
         if (ride.getSeats() > 0) {
             ride.setSeats((short) (ride.getSeats() - 1));
-            System.out.println("-*-*-*-Et l√† on passe ds le BookingService -*-*-*-*-");
+            System.out.println("-*-*-*-Et l‡† on passe ds le BookingService -*-*-*-*-");
             booking = new Booking();
             booking.setUser(user);
             booking.setRide(ride);
