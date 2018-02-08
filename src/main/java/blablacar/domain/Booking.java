@@ -23,21 +23,21 @@ public class Booking {
 	@ManyToOne
 	private User user;
 
+	
+	//---Getters-Setters ---//
+	
 	public int getId() {
 		return id;}
-
 	public void setId(int id) {
 		this.id = id;}
 
 	public Ride getRide() {
 		return ride;}
-
 	public void setRide(Ride ride) {
 		this.ride = ride;}
 
 	public User getUser() {
 		return user;}
-
 	public void setUser(User user) {
 		this.user = user;}
 

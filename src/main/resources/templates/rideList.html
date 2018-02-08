@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="head :: linksFragment">
+	<title>Présentation de la liste des rides</title>
+</head>
+
+<body>
+	<div th:replace="layout :: navbarFragment">&nbsp;</div>
+	<section class="section">
+		<div class="container">
+			<form class="form" action="#" th:action="@{/ride/search}"
+				method="get">
+				<div class="field">
+					<div class="control">
+						<div class="label">Rechercher</div>
+						<input class="input" id="search" name="search"
+							th:value="${search}"
+							placeholder="Ville de départ ou d'arrivée..." />
+					</div>
+				</div>
+				<div class="field">
+					<div class="control">
+						<input class="button is-primary" type="submit" value="Rechercher" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<table class="table ">
+				<tr>
+					<th>Départ</th>
+					<th>Arrivée</th>
+					<th>Nombre de places</th>
+					<th>Prix</th>
+				</tr>
+				<tr th:each="ride : ${rides}">
+					<td th:text="${ride.fromCity}" />
+					<td th:text="${ride.toCity}" />
+					<td th:text="${ride.seats}" />
+					<td th:text="${ride.price}" />
+					<td><a class="button is-info"
+						th:href="@{/booking(ride=${ride.id},user=$(user.id)}"> C'est parti !</a></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+
+</body>
+
+</html>

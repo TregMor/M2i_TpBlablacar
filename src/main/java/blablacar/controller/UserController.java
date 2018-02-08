@@ -9,24 +9,38 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import blablacar.domain.User;
 import blablacar.form.UserCreationForm;
+import blablacar.repository.UserRepository;
 import blablacar.services.UserService;
 
 //Intégralement copié sur: https://spring.io/guides/gs/validating-form-input/
 @Controller  //Controller Spring doit etre déclaré
-public class UserController extends WebMvcConfigurerAdapter {   
+public class UserController {   
 	
 	@Autowired
 	private UserService userService;
+    @Autowired
+    private UserRepository userRepository;
 	    
+    @GetMapping("/")
+    public String showHomePage() {
+    	System.out.println("~~~~~~~~~~~~ Bienvenue ds la méthode homePage !~~~~~~~~~~");
+        return "homePage";
+    }
+    
     @GetMapping
     public String showForm(UserCreationForm userForm) {
-    	System.out.println("plop");
+    	System.out.println("plop du UserController");
         return "userForm";
+    }
+    
+    @GetMapping("/login")
+    public String loginPage() {
+    	System.out.println("~~~~~~~~~~~~ on vient de passer ds la méthode LoginPage !~~~~~~~~~~");
+        return "login";
     }
 
     @PostMapping
@@ -50,17 +64,19 @@ public class UserController extends WebMvcConfigurerAdapter {
         userService.save(user);
         redirectAttributes.addAttribute("user", user.getId());
         
-        return "redirect:/creationResult";  //Renvoi à une action
+        return "redirect:/creationResult";  												//--> Renvoi à une action
     }
 
-    @GetMapping("creationResult")
-    public String creationResult(@RequestParam("user") String userId, Model model) {   		// Action renvoyée...ici redirection vers une page
+    @GetMapping("/creationResult")
+    public String creationResult(@RequestParam("user") int userId, Model model) {   		//--> Action renvoyée...ici redirection vers une page
     	System.out.println("redirect creationResult " + userId);
     	
     	// utilise le repository pour recup le user
     	//injecter cette objet dans le Model
-    	model.addAttribute("user", userId); //changer le userId en user enregistré
-        return "creationResult";			//Redirection vers une page
+    	
+    	User userRegistered = userRepository.findOne(userId);
+    	model.addAttribute("user", userRegistered); //changer le userId en user enregistré
+        return "creationResult";															//--> Redirection vers une page
     }
 
 }

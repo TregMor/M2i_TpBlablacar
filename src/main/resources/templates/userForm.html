@@ -1,33 +1,54 @@
- 
- 
- <html xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <form action="#" th:action="@{/}" th:object="${userCreationForm}" method="post">
-            <table>
-             	<tr>
-                    <td>Nom:</td>
-                    <td><input type="text" th:field="*{firstName}" /></td>
-                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
-                </tr>
-                <tr>
-                    <td>Prenom:</td>
-                    <td><input type="text" th:field="*{lastName}" /></td>
-                    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
-                </tr>
-                <tr>
-                    <td>Login:</td>
-                    <td><input type="text" th:field="*{login}" /></td>
-                    <td th:if="${#fields.hasErrors('login')}" th:errors="*{login}"/>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="text" th:field="*{password}" /></td>
-                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
-                </tr>
-                <tr>
-                    <td><button type="submit">Submit</button></td>
-                </tr>
-            </table>
-        </form>
-    </body>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="head :: linksFragment">
+<title>Création d'un compte utilisateur</title>
+
+    <link rel="stylesheet" type="text/css" media="all"
+          href="/tools/application.css" th:href="@{/tools/application.css}"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
+</head>
+
+<body>
+	<div th:replace="layout :: navbarFragment"></div>
+	<section class="section">
+		<div class="container">
+			<form action="#" th:action="@{/}" th:object="${userCreationForm}"
+				method="post">
+				<table>
+					<tr>
+						<td>Nom: </td>
+						<td><input type="text" th:field="*{firstName}" /></td>
+						<td th:if="${#fields.hasErrors('firstName')}"
+							th:errors="*{firstName}" />
+					</tr>
+					<tr>
+						<td>Prenom: </td>
+						<td><input type="text" th:field="*{lastName}" /></td>
+						<td th:if="${#fields.hasErrors('lastName')}"
+							th:errors="*{lastName}" />
+					</tr>
+					<tr>
+						<td>Login: </td>
+						<td><input type="text" th:field="*{login}" /></td>
+						<td th:if="${#fields.hasErrors('login')}" th:errors="*{login}" />
+					</tr>
+					<tr>
+						<td>Password: </td>
+						<td><input type="text" th:field="*{password}" /></td>
+						<td th:if="${#fields.hasErrors('password')}"
+							th:errors="*{password}" />
+					</tr>
+					<tr>
+						<td><button type="submit">Submit</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</section>
+</body>
 </html>
