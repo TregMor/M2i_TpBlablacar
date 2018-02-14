@@ -1,4 +1,4 @@
 language: java
 jdk:
   - oraclejdk8
-install: mvn sonar:sonar  -Dsonar.organization=tregmor-github  -Dsonar.host.url=https://sonarcloud.io  -Dsonar.login=192c4b571ff72b497875514a17ac572527140541
+install: mvn clean compile sonar:sonar  -Dsonar.organization=tregmor-github  -Dsonar.host.url=https://sonarcloud.io  -Dsonar.login=192c4b571ff72b497875514a17ac572527140541
